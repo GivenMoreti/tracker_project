@@ -1,0 +1,28 @@
+<style>
+    .footer{
+        text-align: center;
+        opacity:0.6;
+        bottom:0;
+        
+    }
+    .footer-text{
+        opacity: 0.3;
+        color: white;
+    }
+</style>
+
+<div class="footer">
+    <p class="footer-text"> Made with love </p>
+
+    <button class = "btn btn-secondary btn-sm" id="go-up">^</button>
+</div>
+<Script>
+    const goUp = document.getElementById("go-up");
+    goUp.addEventListener("click",()=>{
+        window.scrollTo({
+            top:0,
+            left:0,
+            behavior: "smooth"
+        })
+    })
+</Script>

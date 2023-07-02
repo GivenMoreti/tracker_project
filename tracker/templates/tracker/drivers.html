@@ -1,0 +1,41 @@
+{% extends 'tracker/base.html' %}
+{% block content %}
+
+<div class="container">
+    <table class="table mb-2" id="main-rows">
+       
+        <h1>{% if drivers_count %}
+            <span style="color:blue;"> Number of Drivers: {{ drivers_count}}</span>
+        {% else %}
+            No Drivers.
+        {% endif %}
+    </h1>
+        
+
+    <thead>
+        <tr>
+            <th>Driver first name</th>
+            <th>Driver last name</th>
+            <th>Driver email</th>
+            <td>Action</td>
+            <td>Action</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for driver in drivers %}
+        <tr>
+        <td>{{driver.first_name}}</td>
+        <td>{{driver.last_name}}</td>
+        <td>{{driver.email}}</td>
+        <td><a href="{% url 'update_driver' driver.id %}" class="btn btn-warning btn-sm" >Edit</a></td>
+        <td><a href="{% url 'delete_driver' driver.id %}"><input type="button" class="btn btn-danger btn-sm" value="Remove"></td></a>
+        <td><a href="{% url 'add_driver' %}" class="btn btn-secondary btn-sm">Add New</a></td>
+        </tr>
+        {% endfor %} 
+    </tbody>
+    </table>
+ </div>
+
+{% endblock %}

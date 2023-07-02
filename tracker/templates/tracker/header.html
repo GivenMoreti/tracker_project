@@ -1,0 +1,26 @@
+<nav class="navbar navbar-dark bg-dark" style="box-shadow:2px 3px 3px rgb(160, 230, 218);">
+<div class="header">  
+<ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+
+    {% if request.user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+    <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+    <li><a href="{% url 'drivers' %}">Drivers</a></li>
+    <li><a href="/admin"> Admin</a></li>
+    <li>
+        <a href="{% url 'chats' %}">Notifications</a>
+    </li>
+    <li>
+        <a href="{% url 'job_history' %}">History</a>
+    </li>
+</ul>
+
+</div>
+</nav>
+<div class="customs">
+    <a href="{% url 'add_job' %}" class="btn btn-secondary btn-sm">Add 🛠️</a>
+
+</div>

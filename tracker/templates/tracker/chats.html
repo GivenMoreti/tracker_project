@@ -1,0 +1,22 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <p>{% if chats_count %}<span style="color:rgb(6, 6, 243);">Notifications ({{ chats_count}})</span>{% else %}No Chats{% endif %}</p>
+        <a href="{% url 'add_chat' %}" class="btn btn-outline-primary btn-sm">Add Chat</a>
+        {% for chat in chat %}
+        <div class="chat-box">
+        <h2>{{chat.heading}}</h2>
+        <p>{{chat.body}}</p>
+        <p> Date added :{{chat.date_added|timesince}}</p>
+        <p>Date editted :{{chat.date_edited |timesince}}</p>
+        <p>By@{{chat.driver}}</p>
+        <div class="chat-buttons">
+            <a href="{% url 'delete_chat' chat.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+            <a href="{% url 'update_chat' chat.id %}" class="btn btn-outline-warning btn-sm">Edit</a>
+        </div>
+    </div>
+   
+        {% endfor %}
+    </div>
+{% endblock %}

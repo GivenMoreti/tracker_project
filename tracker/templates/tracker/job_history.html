@@ -1,0 +1,36 @@
+{% extends "tracker/base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Job history</h1>
+    <table class="table mb-2 " id="main-rows">
+        <h1>{% if jobs_count %}
+          <span style="color:blue;"> Number of Jobs: {{ jobs_count}}</span>
+        </h1>
+        <thead >
+          <tr >
+            <th scope="col">Driver</th>
+            <th scope="col">Car Name</th>
+            <th scope="col">Mileage(km)</th>
+            <th scope="col">Issue</th>
+            <th scope="col">Describe issue</th>
+            <th scope="col">Date added</th>
+            <th scope="col">Date Changed</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for tracker in tracker %}
+          <tr >
+            <td>{{ history.driver}}</td>
+            <td>{{ history.car_name }}</td>
+            <td>{{ history.mileage }} </td>
+            <td>{{ history.issue }}</td>
+            <td>{{ history.describe_issues}}</td>
+            <td>{{ history.date_added}}</td>
+            <td>{{ history.date_edited}}</td>
+        </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}
